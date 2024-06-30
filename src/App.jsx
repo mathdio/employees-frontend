@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
 
+import Mobile from './pages/Mobile';
+
 function App() {
-  const [isMobile, setIsMobile] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [windowDimensions, setWindowDimensions] = useState({ width: null, height: null });
+  const [state, setState] = useState({
+    isMobile: null,
+    isLoading: true,
+    windowDimensions: { width: null, height: null },
+  });
 
   const getWindowDimensions = () => {
     const width = window.innerWidth;
@@ -12,36 +16,52 @@ function App() {
   };
 
   const handleWindowResize = () => {
-    setWindowDimensions(getWindowDimensions());
+    setState({
+      ...state,
+      windowDimensions: getWindowDimensions(),
+    });
   };
 
   useEffect(() => {
-    setWindowDimensions(getWindowDimensions());
+    const dimensions = getWindowDimensions();
+    setState((s) => ({
+      ...s,
+      windowDimensions: dimensions,
+      isLoading: false,
+    }));
+
     window.addEventListener('resize', handleWindowResize);
     return () => window.removeEventListener('resize', handleWindowResize);
   }, []);
 
   useEffect(() => {
     const LARGE_DEVICE_WIDTH = 992;
+    const { width } = state.windowDimensions;
 
-    if (windowDimensions.width < LARGE_DEVICE_WIDTH) {
-      setIsLoading(false);
-      setIsMobile(true);
+    if (width !== null && width < LARGE_DEVICE_WIDTH) {
+      setState((s) => ({
+        ...s,
+        isLoading: false,
+        isMobile: true,
+      }));
     } else {
-      setIsLoading(false);
-      setIsMobile(false);
+      setState((s) => ({
+        ...s,
+        isLoading: false,
+        isMobile: false,
+      }));
     }
-  }, [windowDimensions]);
+  }, [state.isLoading, state.windowDimensions]);
 
-  if (isLoading) {
+  if (state.isLoading) {
     return (
       <h1 style={ { color: 'red' } }>Loading</h1>
     );
   }
 
-  if (isMobile) {
+  if (state.isMobile) {
     return (
-      <h1 style={ { color: 'blue' } }>Mobile</h1>
+      <Mobile />
     );
   }
   return (
