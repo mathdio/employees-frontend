@@ -16,17 +16,16 @@ export default function Employees() {
   };
 
   const handleWindowResize = () => {
-    setState({
-      ...state,
+    setState((s) => ({
+      ...s,
       windowDimensions: getWindowDimensions(),
-    });
+    }));
   };
 
   useEffect(() => {
-    const dimensions = getWindowDimensions();
     setState((s) => ({
       ...s,
-      windowDimensions: dimensions,
+      windowDimensions: getWindowDimensions(),
       isLoading: false,
     }));
 
