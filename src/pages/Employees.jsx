@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 
 import Mobile from '../components/Mobile';
+import fetchEmployees from '../utils/fetchEmployees';
 
 export default function Employees() {
   const [state, setState] = useState({
     isMobile: null,
     isLoading: true,
     windowDimensions: { width: null, height: null },
+    employeesData: [],
   });
 
   const getWindowDimensions = () => {
@@ -23,14 +25,18 @@ export default function Employees() {
   };
 
   useEffect(() => {
-    setState((s) => ({
-      ...s,
-      windowDimensions: getWindowDimensions(),
-      isLoading: false,
-    }));
+    (async () => {
+      const employeesData = await fetchEmployees();
+      setState((s) => ({
+        ...s,
+        windowDimensions: getWindowDimensions(),
+        isLoading: false,
+        employeesData,
+      }));
 
-    window.addEventListener('resize', handleWindowResize);
-    return () => window.removeEventListener('resize', handleWindowResize);
+      window.addEventListener('resize', handleWindowResize);
+      return () => window.removeEventListener('resize', handleWindowResize);
+    })();
   }, []);
 
   useEffect(() => {
@@ -60,7 +66,7 @@ export default function Employees() {
 
   if (state.isMobile) {
     return (
-      <Mobile />
+      <Mobile employeesData={ state.employeesData } />
     );
   }
   return (
