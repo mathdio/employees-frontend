@@ -26,10 +26,12 @@ table tr:last-child td:last-child {
 .table-heading {
   background: linear-gradient(180deg, rgba(90,132,192,1) 0%, rgba(89,103,202,1) 100%);
   color: white;
+  width: 33.33%;
 }
 
 
 tr {
   height: 47px;
+  min-width: 100%;
 }
 

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import arrowDown from '../assets/arrow-down.svg';
@@ -9,7 +9,7 @@ const TABLE_CELL_STYLE = style['table-cell'];
 const COLLAPSE_CELL_STYLE = style.collapse;
 
 export default function CollapseRow({ employee: {
-  name, image, job, admission_date, phone } }) {
+  name, image, job, admission_date: date, phone } }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const handleCollapseClick = useCallback(() => {
@@ -34,15 +34,22 @@ export default function CollapseRow({ employee: {
         </td>
       </tr>
       {isCollapsed && (
-        <tr
-          className={ style.collapse }
-        >
-          <td className={ COLLAPSE_CELL_STYLE }>{job}</td>
-          <td className={ COLLAPSE_CELL_STYLE }>
-            {admission_date}
-          </td>
-          <td className={ COLLAPSE_CELL_STYLE }>{phone}</td>
-        </tr>
+        <>
+          <tr className={ style.collapse }>
+            <td>CARGO</td>
+            <td>{job}</td>
+          </tr>
+          <tr className={ style.collapse }>
+            <td>DATA DE ADMISSÃO</td>
+            <td>
+              {date}
+            </td>
+          </tr>
+          <tr className={ style.collapse }>
+            <td>TELEFONE</td>
+            <td>{phone}</td>
+          </tr>
+        </>
       )}
     </>
   );
