@@ -1,15 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import Mobile from '../components/Mobile';
+import Context from '../context/Context';
 import fetchEmployees from '../utils/fetchEmployees';
+
+const RESPONSE_OK = 200;
 
 export default function Employees() {
   const [state, setState] = useState({
     isMobile: null,
     isLoading: true,
     windowDimensions: { width: null, height: null },
-    employeesData: [],
   });
+
+  const { setEmployeesData } = useContext(Context);
 
   const getWindowDimensions = () => {
     const width = window.innerWidth;
@@ -26,16 +30,20 @@ export default function Employees() {
 
   useEffect(() => {
     (async () => {
-      const employeesData = await fetchEmployees();
-      setState((s) => ({
-        ...s,
-        windowDimensions: getWindowDimensions(),
-        isLoading: false,
-        employeesData,
-      }));
+      const { status, data } = await fetchEmployees();
 
-      window.addEventListener('resize', handleWindowResize);
-      return () => window.removeEventListener('resize', handleWindowResize);
+      if (status && status === RESPONSE_OK) {
+        setState((s) => ({
+          ...s,
+          windowDimensions: getWindowDimensions(),
+          isLoading: false,
+        }));
+
+        setEmployeesData(() => data);
+
+        window.addEventListener('resize', handleWindowResize);
+        return () => window.removeEventListener('resize', handleWindowResize);
+      }
     })();
   }, []);
 
@@ -49,7 +57,7 @@ export default function Employees() {
         isLoading: false,
         isMobile: true,
       }));
-    } else {
+    } else if (width !== null) {
       setState((s) => ({
         ...s,
         isLoading: false,
@@ -66,7 +74,7 @@ export default function Employees() {
 
   if (state.isMobile) {
     return (
-      <Mobile employeesData={ state.employeesData } />
+      <Mobile />
     );
   }
   return (
