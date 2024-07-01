@@ -11,14 +11,9 @@ const COLLAPSE_CELL_STYLE = style.collapse;
 export default function CollapseRow({ employee: {
   name, image, job, admission_date, phone } }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [date, setDate] = useState(null);
 
   const handleCollapseClick = useCallback(() => {
     setIsCollapsed((collapsed) => !collapsed);
-  }, []);
-
-  useEffect(() => {
-    setDate(() => new Date(admission_date));
   }, []);
 
   return (
@@ -44,8 +39,7 @@ export default function CollapseRow({ employee: {
         >
           <td className={ COLLAPSE_CELL_STYLE }>{job}</td>
           <td className={ COLLAPSE_CELL_STYLE }>
-            {`${date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()}
-            /${date.getMonth() + 1}/${date.getFullYear()}`}
+            {admission_date}
           </td>
           <td className={ COLLAPSE_CELL_STYLE }>{phone}</td>
         </tr>
