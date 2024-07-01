@@ -28,23 +28,8 @@ table tr:last-child td:last-child {
   color: white;
 }
 
-.table-cell {
-  background-color: white;
-  color: black;
-  text-align: center;
-}
 
 tr {
   height: 47px;
 }
 
-.photo {
-  border-radius: 50%;
-  height: 34px;
-  width: 34px;
-}
-
-.arrow-down {
-  height: 32px;
-  width: 32px;
-}

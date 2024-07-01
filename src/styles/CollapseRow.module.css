@@ -1,0 +1,24 @@
+.table-cell {
+  background-color: white;
+  font-size: 16px;
+  height: 60px;
+  text-align: center;
+}
+
+.photo {
+  border-radius: 50%;
+  height: 34px;
+  width: 34px;
+}
+
+.arrow-down {
+  height: 32px;
+  width: 32px;
+}
+
+.collapse {
+  background-color: rgb(220, 219, 219);
+  font-size: 16px;
+  height: 60px;
+  text-align: center;
+}

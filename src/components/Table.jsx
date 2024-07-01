@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 
-import arrowDown from '../assets/arrow-down.svg';
 import Context from '../context/Context';
+
+import CollapseRow from './CollapseRow';
 
 import style from '../styles/Table.module.css';
 
-const TABLE_CELL_STYLE = style['table-cell'];
 const TABLE_HEADING_STYLE = style['table-heading'];
 
 export default function Table() {
@@ -21,21 +21,8 @@ export default function Table() {
         </tr>
       </thead>
       <tbody>
-        {employeesData.map(({ id, name, image }) => (
-          <tr key={ id }>
-            <td className={ TABLE_CELL_STYLE }>
-              <img src={ image } alt="" className={ style.photo } />
-            </td>
-            <td className={ TABLE_CELL_STYLE }>{name}</td>
-            <td className={ TABLE_CELL_STYLE }>
-              <input
-                type="image"
-                src={ arrowDown }
-                alt=""
-                className={ style['arrow-down'] }
-              />
-            </td>
-          </tr>
+        {employeesData.map((employee) => (
+          <CollapseRow key={ employee.id } employee={ employee } />
         ))}
       </tbody>
     </table>
