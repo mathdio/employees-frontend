@@ -6,7 +6,7 @@ import arrowDown from '../assets/arrow-down.svg';
 import style from '../styles/CollapseRow.module.css';
 
 const TABLE_CELL_STYLE = style['table-cell'];
-const COLLAPSE_CELL_STYLE = style.collapse;
+const CELL_VALUE_STYLE = style['cell-value'];
 
 export default function CollapseRow({ employee: {
   name, image, job, admission_date: date, phone } }) {
@@ -22,7 +22,7 @@ export default function CollapseRow({ employee: {
         <td className={ TABLE_CELL_STYLE }>
           <img src={ image } alt="" className={ style.photo } />
         </td>
-        <td className={ TABLE_CELL_STYLE }>{name}</td>
+        <td className={ TABLE_CELL_STYLE } colSpan={ 2 }>{name}</td>
         <td className={ TABLE_CELL_STYLE }>
           <input
             type="image"
@@ -36,18 +36,18 @@ export default function CollapseRow({ employee: {
       {isCollapsed && (
         <>
           <tr className={ style.collapse }>
-            <td>CARGO</td>
-            <td>{job}</td>
+            <td colSpan={ 2 } className={ style['cell-key'] }>CARGO</td>
+            <td colSpan={ 2 } className={ CELL_VALUE_STYLE }>{job}</td>
           </tr>
           <tr className={ style.collapse }>
-            <td>DATA DE ADMISSÃO</td>
-            <td>
+            <td colSpan={ 2 } className={ style['cell-key'] }>DATA DE ADMISSÃO</td>
+            <td colSpan={ 2 } className={ CELL_VALUE_STYLE }>
               {date}
             </td>
           </tr>
           <tr className={ style.collapse }>
-            <td>TELEFONE</td>
-            <td>{phone}</td>
+            <td colSpan={ 2 } className={ style['cell-key'] }>TELEFONE</td>
+            <td colSpan={ 2 } className={ CELL_VALUE_STYLE }>{phone}</td>
           </tr>
         </>
       )}

@@ -16,7 +16,7 @@ export default function Table() {
       <thead>
         <tr>
           <th className={ TABLE_HEADING_STYLE }>FOTO</th>
-          <th className={ TABLE_HEADING_STYLE }>NOME</th>
+          <th className={ TABLE_HEADING_STYLE } colSpan={ 2 }>NOME</th>
           <th className={ TABLE_HEADING_STYLE }>•</th>
         </tr>
       </thead>

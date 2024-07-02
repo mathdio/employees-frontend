@@ -23,3 +23,15 @@
   text-align: center;
   width: 100%;
 }
+
+.cell-key {
+  padding-right: 1%;
+  text-align: end;
+  width: 50%;
+}
+
+.cell-value {
+  padding-left: 1%;
+  text-align: start;
+  width: 50%;
+}
