@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 import logo from '../assets/header-logo.png';
 
+import FilterInput from './FilterInput';
 import Table from './Table';
 
 import style from '../styles/Mobile.module.css';
@@ -12,8 +13,8 @@ export default function Mobile() {
       <header className={ style['header-container'] }>
         <img src={ logo } alt="" className={ style['header-logo'] } />
       </header>
-      <p className={ style.heading }>Funcionários</p>
-      <input type="text" />
+      <h4 className={ style.heading }>Funcionários</h4>
+      <FilterInput />
       <Table />
     </div>
   );

@@ -5,11 +5,14 @@ import Context from './Context';
 
 function Provider({ children }) {
   const [employeesData, setEmployeesData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
   const contextValue = useMemo(() => ({
     employeesData,
     setEmployeesData,
-  }), [employeesData]);
+    filteredData,
+    setFilteredData,
+  }), [employeesData, filteredData]);
 
   return (
     <Context.Provider value={ contextValue }>

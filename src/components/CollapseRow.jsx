@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import arrowDown from '../assets/arrow-down.svg';
+import arrowUp from '../assets/arrow-up.svg';
 
 import style from '../styles/CollapseRow.module.css';
 
@@ -26,7 +27,7 @@ export default function CollapseRow({ employee: {
         <td className={ TABLE_CELL_STYLE }>
           <input
             type="image"
-            src={ arrowDown }
+            src={ isCollapsed ? arrowUp : arrowDown }
             alt=""
             className={ style['arrow-down'] }
             onClick={ handleCollapseClick }
