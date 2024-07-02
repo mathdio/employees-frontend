@@ -9,7 +9,7 @@ import style from '../styles/Table.module.css';
 const TABLE_HEADING_STYLE = style['table-heading'];
 
 export default function Table() {
-  const { employeesData } = useContext(Context);
+  const { employeesData, filteredData } = useContext(Context);
 
   return (
     <table className={ style['table-container'] }>
@@ -21,9 +21,11 @@ export default function Table() {
         </tr>
       </thead>
       <tbody>
-        {employeesData.map((employee) => (
+        {filteredData ? (filteredData.map((employee) => (
           <CollapseRow key={ employee.id } employee={ employee } />
-        ))}
+        ))) : (employeesData.map((employee) => (
+          <CollapseRow key={ employee.id } employee={ employee } />
+        ))) }
       </tbody>
     </table>
   );

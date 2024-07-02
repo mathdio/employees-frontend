@@ -7,10 +7,13 @@ export default function FilterInput() {
   const { employeesData, setFilteredData } = useContext(Context);
 
   const handleChange = () => {
-    return employeesData.filter(({ name, job, phone }) => (
-      name.toLowerCase().includes(filterValue.toLowerCase())
-      || job.toLowerCase().includes(filterValue.toLowerCase())
-      || phone.includes(filterValue)));
+    if (filterValue.length > 0) {
+      return employeesData.filter(({ name, job, phone }) => (
+        name.toLowerCase().includes(filterValue.toLowerCase())
+        || job.toLowerCase().includes(filterValue.toLowerCase())
+        || phone.includes(filterValue)));
+    }
+    return null;
   };
 
   useEffect(() => {

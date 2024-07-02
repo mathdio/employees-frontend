@@ -5,7 +5,7 @@ import Context from './Context';
 
 function Provider({ children }) {
   const [employeesData, setEmployeesData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
+  const [filteredData, setFilteredData] = useState(null);
 
   const contextValue = useMemo(() => ({
     employeesData,
