@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 
+import ellipse from '../assets/ellipse.svg';
 import Context from '../context/Context';
 
 import CollapseRow from './CollapseRow';
@@ -17,7 +18,9 @@ export default function Table() {
         <tr>
           <th className={ TABLE_HEADING_STYLE }>FOTO</th>
           <th className={ TABLE_HEADING_STYLE } colSpan={ 2 }>NOME</th>
-          <th className={ TABLE_HEADING_STYLE }>•</th>
+          <th className={ TABLE_HEADING_STYLE }>
+            <img src={ ellipse } alt="ellipse icon" />
+          </th>
         </tr>
       </thead>
       <tbody>

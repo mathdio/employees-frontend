@@ -28,8 +28,8 @@ export default function CollapseRow({ employee: {
           <input
             type="image"
             src={ isCollapsed ? arrowUp : arrowDown }
-            alt=""
-            className={ style['arrow-down'] }
+            alt={ isCollapsed ? 'arrow-up icon' : 'arrow-down icon' }
+            className={ style['arrow-icon'] }
             onClick={ handleCollapseClick }
           />
         </td>

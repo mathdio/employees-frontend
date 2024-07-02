@@ -1,6 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 
+import searchIcon from '../assets/search-icon.svg';
 import Context from '../context/Context';
+
+import style from '../styles/FilterInput.module.css';
 
 export default function FilterInput() {
   const [filterValue, setFilterValue] = useState('');
@@ -21,10 +24,16 @@ export default function FilterInput() {
   }, [filterValue]);
 
   return (
-    <input
-      type="text"
-      value={ filterValue }
-      onChange={ ({ target }) => setFilterValue(() => target.value) }
-    />
+    <div className={ style['input-container'] }>
+      <input
+        className={ style.input }
+        type="text"
+        placeholder="Pesquisar"
+        value={ filterValue }
+        onChange={ ({ target }) => setFilterValue(() => target.value) }
+      />
+      <img src={ searchIcon } alt="search icon" className={ style['search-icon'] } />
+    </div>
+
   );
 }
