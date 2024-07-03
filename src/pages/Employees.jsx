@@ -70,7 +70,7 @@ export default function Employees() {
 
   if (state.isLoading) {
     return (
-      <h1 style={ { color: 'red' } }>Loading</h1>
+      <h1>Loading</h1>
     );
   }
 

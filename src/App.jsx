@@ -5,7 +5,7 @@ import Employees from './pages/Employees';
 export default function App() {
   return (
     <Routes>
-      <Route path="/employees" element={ <Employees /> } />
+      <Route path="/" element={ <Employees /> } />
     </Routes>
   );
 }
