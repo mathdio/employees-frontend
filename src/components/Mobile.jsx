@@ -1,19 +1,15 @@
 import PropTypes from 'prop-types';
 
-import logo from '../assets/header-logo.png';
-
 import FilterInput from './FilterInput';
+import Header from './Header';
 import Table from './Table';
 
-import indexStyle from '../index.module.css';
 import style from '../styles/Mobile.module.css';
 
 export default function Mobile() {
   return (
     <>
-      <header className={ style['header-container'] }>
-        <img src={ logo } alt="" className={ style['header-logo'] } />
-      </header>
+      <Header />
       <h4 className={ style.heading }>Funcionários</h4>
       <FilterInput />
       <Table />

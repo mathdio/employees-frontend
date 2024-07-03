@@ -32,7 +32,6 @@ export default function FilterInput() {
         value={ filterValue }
         onChange={ ({ target }) => setFilterValue(() => target.value) }
       />
-      <img src={ searchIcon } alt="search icon" className={ style['search-icon'] } />
     </div>
 
   );

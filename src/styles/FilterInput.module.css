@@ -1,12 +1,15 @@
 .input-container {
   height: 48px;
+  justify-items: end;
   margin-left: 5%;
   margin-top: 3%;
   width: 90%;
-
 }
 
 .input {
+  background-image: url('../assets/search-icon.svg');
+  background-position: 96%;
+  background-repeat: no-repeat;
   border: #DFDFDF 1px solid;
   border-radius: 8px;
   height: 48px;
@@ -20,8 +23,4 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-}
-
-.search-icon {
-  position: absolute;
 }

@@ -19,7 +19,7 @@ export default function Table() {
           <th className={ TABLE_HEADING_STYLE }>FOTO</th>
           <th className={ TABLE_HEADING_STYLE } colSpan={ 2 }>NOME</th>
           <th className={ TABLE_HEADING_STYLE }>
-            <img src={ ellipse } alt="ellipse icon" />
+            <img src={ ellipse } alt="ellipse icon" className={ style['ellipse-icon'] } />
           </th>
         </tr>
       </thead>

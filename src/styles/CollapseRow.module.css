@@ -12,6 +12,7 @@
 }
 
 .arrow-icon {
+  background-color: transparent;
   height: 32px;
   width: 32px;
 }
