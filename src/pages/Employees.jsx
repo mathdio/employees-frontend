@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 
 import Mobile from '../components/Mobile';
+import Web from '../components/Web';
 import Context from '../context/Context';
 import fetchEmployees from '../utils/fetchEmployees';
 
@@ -78,6 +79,6 @@ export default function Employees() {
     );
   }
   return (
-    <h1>Web</h1>
+    <Web />
   );
 }

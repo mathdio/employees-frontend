@@ -1,3 +1,21 @@
+@media only screen and (max-width: 991px) {
+  .header-logo {
+    background-color: white;
+    height: 34px;
+    margin-left: 5%;
+    width: 44px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .header-logo {
+    background-color: white;
+    height: 34px;
+    margin-left: 2%;
+    width: 44px;
+  }
+}
+
 .header-container {
   align-items: center;
   background-color: white;
@@ -7,9 +25,4 @@
   width: 100%;
 }
 
-.header-logo {
-  background-color: white;
-  height: 34px;
-  margin-left: 5%;
-  width: 44px;
-}
+

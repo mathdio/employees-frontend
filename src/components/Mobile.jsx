@@ -1,16 +1,15 @@
 import PropTypes from 'prop-types';
 
+import EmployeesHeading from './EmployeesHeading';
 import FilterInput from './FilterInput';
 import Header from './Header';
 import Table from './Table';
-
-import style from '../styles/Mobile.module.css';
 
 export default function Mobile() {
   return (
     <>
       <Header />
-      <h4 className={ style.heading }>Funcionários</h4>
+      <EmployeesHeading />
       <FilterInput />
       <Table />
     </>

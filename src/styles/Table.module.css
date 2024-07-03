@@ -1,11 +1,26 @@
-.table-container {
-  margin: auto;
-  margin-top: 2%;
-  width: 90%;
+@media only screen and (max-width: 991px) {
+  .table-container {
+    margin: auto;
+    margin-top: 2%;
+    width: 90%;
+  }
 }
+
+@media only screen and (min-width: 992px) {
+  .table-container {
+    margin: auto;
+    margin-top: 2%;
+    width: 95%;
+  }
+} 
+
 
 table, thead, tbody, tfoot, tr, th, td {
   border-spacing: 0;
+  font-family: Roboto , sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 table tr:first-child th:first-child {
