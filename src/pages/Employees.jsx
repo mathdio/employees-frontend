@@ -5,7 +5,10 @@ import Web from '../components/Web';
 import Context from '../context/Context';
 import fetchEmployees from '../utils/fetchEmployees';
 
+import Loading from './Loading';
+
 const RESPONSE_OK = 200;
+const LOADING_MOCK_TIMER = 500;
 
 export default function Employees() {
   const [state, setState] = useState({
@@ -31,22 +34,24 @@ export default function Employees() {
 
   useEffect(() => {
     document.title = 'Bemobile - Funcionários Front-End';
-    (async () => {
-      const { status, data } = await fetchEmployees();
+    setTimeout(() => {
+      (async () => {
+        const { status, data } = await fetchEmployees();
 
-      if (status && status === RESPONSE_OK) {
-        setState((s) => ({
-          ...s,
-          windowDimensions: getWindowDimensions(),
-          isLoading: false,
-        }));
+        if (status && status === RESPONSE_OK) {
+          setState((s) => ({
+            ...s,
+            windowDimensions: getWindowDimensions(),
+            isLoading: false,
+          }));
 
-        setEmployeesData(() => data);
+          setEmployeesData(() => data);
 
-        window.addEventListener('resize', handleWindowResize);
-        return () => window.removeEventListener('resize', handleWindowResize);
-      }
-    })();
+          window.addEventListener('resize', handleWindowResize);
+          return () => window.removeEventListener('resize', handleWindowResize);
+        }
+      })();
+    }, LOADING_MOCK_TIMER);
   }, []);
 
   useEffect(() => {
@@ -70,7 +75,7 @@ export default function Employees() {
 
   if (state.isLoading) {
     return (
-      <h1 style={ { color: 'red' } }>Loading</h1>
+      <Loading />
     );
   }
 
