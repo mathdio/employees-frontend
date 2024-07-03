@@ -1,6 +1,15 @@
+import { useContext } from 'react';
+
+import Context from '../context/Context';
+
 import WebRow from './WebRow';
 
+import style from '../styles/WebTable.module.css';
+
+const TABLE_HEADING_STYLE = style['table-heading'];
+
 export default function WebTable() {
+  const { employeesData, filteredData } = useContext(Context);
   return (
     <table className={ style['table-container'] }>
       <thead>

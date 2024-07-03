@@ -1,16 +1,20 @@
 import PropTypes from 'prop-types';
 
+import style from '../styles/WebRow.module.css';
+
+const CELL_STYLE = style['table-cell'];
+
 export default function WebRow({ employee:
-  { photo, name, job, admission_date: date, phone } }) {
+  { image, name, job, admission_date: date, phone } }) {
   return (
     <tr>
-      <td>
-        <img src={ photo } alt={ `${name}` } />
+      <td className={ CELL_STYLE }>
+        <img src={ image } alt={ `${name}` } className={ style.photo } />
       </td>
-      <td>{name}</td>
-      <td>{job}</td>
-      <td>{date}</td>
-      <td>{phone}</td>
+      <td className={ CELL_STYLE }>{name}</td>
+      <td className={ CELL_STYLE }>{job}</td>
+      <td className={ CELL_STYLE }>{date}</td>
+      <td className={ CELL_STYLE }>{phone}</td>
     </tr>
   );
 }

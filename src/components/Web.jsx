@@ -1,7 +1,7 @@
 import EmployeesHeading from './EmployeesHeading';
 import FilterInput from './FilterInput';
 import Header from './Header';
-import Table from './Table';
+import WebTable from './WebTable';
 
 import style from '../styles/Web.module.css';
 
@@ -13,7 +13,7 @@ export default function Web() {
         <EmployeesHeading />
         <FilterInput />
       </form>
-      <Table />
+      <WebTable />
     </>
 
   );

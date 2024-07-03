@@ -30,6 +30,7 @@ export default function Employees() {
   };
 
   useEffect(() => {
+    document.title = 'Bemobile - Funcionários Front-End';
     (async () => {
       const { status, data } = await fetchEmployees();
 
