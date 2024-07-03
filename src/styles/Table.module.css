@@ -1,0 +1,43 @@
+.table-container {
+  margin: auto;
+  margin-top: 2%;
+  width: 90%;
+}
+
+table, thead, tbody, tfoot, tr, th, td {
+  border-spacing: 0;
+}
+
+table tr:first-child th:first-child {
+  border-radius: 8px 0 0;
+}
+
+table tr:first-child th:last-child {
+  border-radius: 0 8px 0 0;
+}
+
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 8px;
+}
+
+table tr:last-child td:last-child {
+  border-radius: 0 0 8px;
+}
+
+
+.table-heading {
+  background: linear-gradient(180deg, rgba(90,132,192,1) 0%, rgba(89,103,202,1) 100%);
+  color: white;
+  width: 33.33%;
+}
+
+
+tr {
+  height: 47px;
+  min-width: 100%;
+}
+
+.ellipse-icon {
+  background-color: transparent;
+}
+

@@ -1,52 +1,11 @@
-import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-function App() {
-  const [isMobile, setIsMobile] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [windowDimensions, setWindowDimensions] = useState({ width: null, height: null });
+import Employees from './pages/Employees';
 
-  const getWindowDimensions = () => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    return { width, height };
-  };
-
-  const handleWindowResize = () => {
-    setWindowDimensions(getWindowDimensions());
-  };
-
-  useEffect(() => {
-    setWindowDimensions(getWindowDimensions());
-    window.addEventListener('resize', handleWindowResize);
-    return () => window.removeEventListener('resize', handleWindowResize);
-  }, []);
-
-  useEffect(() => {
-    const LARGE_DEVICE_WIDTH = 992;
-
-    if (windowDimensions.width < LARGE_DEVICE_WIDTH) {
-      setIsLoading(false);
-      setIsMobile(true);
-    } else {
-      setIsLoading(false);
-      setIsMobile(false);
-    }
-  }, [windowDimensions]);
-
-  if (isLoading) {
-    return (
-      <h1 style={ { color: 'red' } }>Loading</h1>
-    );
-  }
-
-  if (isMobile) {
-    return (
-      <h1 style={ { color: 'blue' } }>Mobile</h1>
-    );
-  }
+export default function App() {
   return (
-    <h1>Web</h1>
+    <Routes>
+      <Route path="/employees" element={ <Employees /> } />
+    </Routes>
   );
 }
-
-export default App;
