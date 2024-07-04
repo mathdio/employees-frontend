@@ -1,4 +1,5 @@
-@media only screen and (max-width: 991px) {
+@media only screen and ( max-width : 991px ) {
+
   .header-logo {
     background-color: white;
     height: 34px;
@@ -7,7 +8,8 @@
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and ( min-width : 992px ) {
+
   .header-logo {
     background-color: white;
     height: 34px;
@@ -22,7 +24,8 @@
   box-shadow: 0 1px 24px -3px rgba(0,0,0,0.34);
   display: flex;
   height: 60px;
+  position: fixed;
+  top: 0;
   width: 100%;
 }
-
 

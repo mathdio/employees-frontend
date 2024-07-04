@@ -9,11 +9,13 @@ export default function Web() {
   return (
     <>
       <Header />
-      <form className={ style['form-container'] }>
-        <EmployeesHeading />
-        <FilterInput />
-      </form>
-      <WebTable />
+      <main className={ style['main-container'] }>
+        <form className={ style['form-container'] }>
+          <EmployeesHeading />
+          <FilterInput />
+        </form>
+        <WebTable />
+      </main>
     </>
 
   );

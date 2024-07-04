@@ -5,13 +5,17 @@ import FilterInput from './FilterInput';
 import Header from './Header';
 import Table from './Table';
 
+import style from '../styles/Mobile.module.css';
+
 export default function Mobile() {
   return (
     <>
       <Header />
-      <EmployeesHeading />
-      <FilterInput />
-      <Table />
+      <main className={ style['main-container'] }>
+        <EmployeesHeading />
+        <FilterInput />
+        <Table />
+      </main>
     </>
   );
 }
