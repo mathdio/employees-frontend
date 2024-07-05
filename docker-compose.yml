@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  frontend:
+    container_name: frontend-container
+    build: .
+    image: frontend-image
+    restart: always
+    ports:
+      - "3000:3000"
+      - "5173:5173"
+    platform: linux/x86_64
